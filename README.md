@@ -1,4 +1,4 @@
-## Bounty-Bucks
+## Bounty Bucks
 
 
 ![Bounty_Bucks_Logo (1)](https://user-images.githubusercontent.com/100870737/182691725-9180e136-4956-456f-8738-9890e6bd2388.jpg)
