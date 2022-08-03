@@ -4,7 +4,7 @@ Reimagining Payments for DAO Contributions with Activity Tracking and Automated 
 
 
 ## Three Groups for Branches: Frontend, Backend and Integrated/Fullstack
-## * Frontend (UI for Project)
+* ## Frontend (UI for Project)
   * Dev - For intial exploration of developing code solution for project needs and developing MVP of code
   * Test - For next iteration of code that can be tested for user and project needs
   * Prod - Final iteration of code, ready for deployment for users
