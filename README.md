@@ -1,5 +1,6 @@
 ## Bounty-Bucks
-Reimagining Payments for DAO Contributions with Activity Tracking and Automated Payments
+Reimagining Payments for DAO Contributions with Activity Tracking and Automated Payments w/ Escrow Security Layer
+
 
 
 ## Three Groups for Branches: Frontend, Backend and Integrated/Fullstack
