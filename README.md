@@ -1,7 +1,9 @@
 ## Bounty-Bucks
 
 
-![Bounty_Bucks_Logo](https://user-images.githubusercontent.com/100870737/182691478-08471b5c-4dba-46fa-ae22-c2b7eb4c1a7b.png)
+![Bounty_Bucks_Logo](https://user-images.githubusercontent.com/100870737/182691612-691ffc4d-e065-41fa-ae70-7ef6fc7870f7.jpg)
+
+
 
 Reimagining Payments for DAO Contributions with Activity Tracking and Automated Payments w/ Escrow Security Layer
 
