@@ -23,19 +23,19 @@ const NavBar = () => {
                         <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <button 
                             type="button" 
-                            onClick={()=> {return window.open('http://localhost:3000', '_top')}}
+                            onClick={()=> {return window.open('https://bounty-bucks.vercel.app/', '_top')}}
                             class="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-2 border-black hover:border-transparent">
                             Home
                         </button>
                         <button 
                             type="button" 
-                            onClick={()=> {return window.open('http://localhost:3000/bounties', '_top')}}
+                            onClick={()=> {return window.open('https://bounty-bucks.vercel.app/bounties', '_top')}}
                             class="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-2 border-black hover:border-transparent">
                             Bounties
                         </button>
                         <button 
                             type="button" 
-                            onClick={()=> {return window.open('http://localhost:3000/daos', '_top')}}
+                            onClick={()=> {return window.open('https://bounty-bucks.vercel.app/daos', '_top')}}
                             class="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-2 border-black hover:border-transparent">
                             DAOs
                         </button>

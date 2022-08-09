@@ -4,9 +4,7 @@ import NavBar from '../components/NavBar';
  * @returns DAOs Page
  */
 const DAOs = () => {
-    //const [nav, setNav] = useState(false);
-    //const handleClick = () => setNav(!nav);
-
+   
     return (
         <div className="">
             <NavBar></NavBar>

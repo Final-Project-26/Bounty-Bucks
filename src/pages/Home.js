@@ -16,7 +16,7 @@ function Home() {
                 <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                   Earn crypto and NFTS for your contributions. Collect your rewards to showcase your contributions and keep track of all the great work you've done!
                 </p>
-                <a href="http://localhost:3000/bounties" class="button-85 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-black hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900">
+                <a href="https://bounty-bucks.vercel.app/" class="button-85 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-black hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900">
                     Start contributing!
                     <svg class="w-5 h-5 ml-2 -mr-1 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </a>
@@ -34,7 +34,7 @@ function Home() {
             Earn Crypto and Rewards For Your Contributions!
         </h1>
         <a 
-          href="http://localhost:3000/daos" class="button-85 mt-10 ml-80 mr-80 flex justify-center items-center py-4 text-base font-medium text-center text-black rounded-lg bg-transparent hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900 border-black border-2">
+          href="https://bounty-bucks.vercel.app/daos" class="button-85 mt-10 ml-80 mr-80 flex justify-center items-center py-4 text-base font-medium text-center text-black rounded-lg bg-transparent hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900 border-black border-2">
             Start Exploring DAOs On Our Platform Now
         </a>
         <div class="px-4 py-8 mr-auto mb-100 place-self-center lg:col-span-12 mx-10 space-y-4 lg:space-y-0 lg:gap-4 lg:grid lg:grid-cols-3">
@@ -76,7 +76,7 @@ function Home() {
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
               Complete tasks to get rewarded. We give you access to earn crypto, NFTs, exclusive perks and so much more!
             </p>
-            <a href="http://localhost:3000/bounties" class="button-85 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-black hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900">
+            <a href="https://bounty-bucks.vercel.app/bounties" class="button-85 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-black hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900">
                 Find Your Next Project
             </a>
         </div>             
@@ -90,7 +90,7 @@ function Home() {
           Choose how you want to contribute, earn, and  keep track of work!
         </h1>
         <a 
-          href="http://localhost:3000/daos" class="button-85 mt-10 ml-80 mr-80 flex justify-center items-center py-4 text-base font-medium text-center text-black rounded-lg bg-transparent hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900 border-black border-2">
+          href="https://bounty-bucks.vercel.app/daos" class="button-85 mt-10 ml-80 mr-80 flex justify-center items-center py-4 text-base font-medium text-center text-black rounded-lg bg-transparent hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900 border-black border-2">
             Explore Ways You Can Contribute
         </a>
         <div class="px-4 py-8 mr-auto mb-100 place-self-center lg:col-span-12  space-y-4 lg:space-y-0 lg:gap-4 lg:grid lg:grid-cols-4">
@@ -135,7 +135,7 @@ function Home() {
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
               If you're a DAO, list your bounties on the best platform for rewards and navigating your contributors journey!
             </p>
-            <a href="http://localhost:3000/bounties" class="button-85 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-black hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900">
+            <a href="https://bounty-bucks.vercel.app/bounties" class="button-85 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-black hover:bg-red focus:ring-4 focus:ring-red dark:focus:ring-red-900">
               Sign Up Here!
             </a>
         </div>    
