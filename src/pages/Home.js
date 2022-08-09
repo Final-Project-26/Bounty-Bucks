@@ -7,7 +7,7 @@ function Home() {
       <NavBar></NavBar>
 
       {/** Section: Start Contributing */}
-      <section class="mt-40 bg-black">
+      <section class="mt-40 bg-white">
         <div class="border-2 border-black grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-10 xl:gap-0 lg:py-2 lg:grid-cols-12">
             <div class="px-4 py-8 mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-1xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-xl xl:text-6xl dark:text-white">
