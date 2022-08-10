@@ -4,15 +4,12 @@ const daoSchema = mongoose.Schema(
   {
     address: {
       type: String,
-      required: ["true"],
     },
     members: {
       type: Array,
-      required: ["true"],
     },
     bounties: {
       type: Array,
-      required: ["true"],
     },
   },
   {

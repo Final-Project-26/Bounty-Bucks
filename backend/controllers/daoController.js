@@ -7,9 +7,9 @@ const Dao = require("../models/daoModel");
 // @access public
 
 const getDao = asyncHandler(async (req, res) => {
-  const Dao = await Dao.find({ address: "address" });
+  const dao = await Dao.find(req.params);
 
-  res.status(200).json(Dao);
+  res.status(200).json(dao);
 });
 
 // @desc Set Dao
@@ -17,12 +17,12 @@ const getDao = asyncHandler(async (req, res) => {
 // @access public
 
 const setDao = asyncHandler(async (req, res) => {
-  const Dao = await Dao.create({
+  const dao = await Dao.create({
     address: req.body.address,
-    members: req.body.orgs,
+    members: req.body.members,
     bounties: req.body.bounties,
   });
-  res.status(200).json(Dao);
+  res.status(200).json(dao);
 });
 
 // @desc Update Daoacter
@@ -30,9 +30,9 @@ const setDao = asyncHandler(async (req, res) => {
 // @access public
 
 const updateDao = asyncHandler(async (req, res) => {
-  const Dao = await Dao.find({ address: "address" });
+  const dao = await Dao.find(req.params);
 
-  const updatedDao = await Dao.update(req.body, {
+  const updatedDao = await dao.update(req.body, {
     new: true,
   });
   res.status(200).json(updatedDao);
@@ -43,11 +43,11 @@ const updateDao = asyncHandler(async (req, res) => {
 // @access public
 
 const deleteDao = asyncHandler(async (req, res) => {
-  const Dao = await Dao.find({ address: "address" });
+  const dao = await Dao.find(req.params);
 
-  await Dao.remove();
+  await dao.deleteOne();
 
-  res.status(200).json({ address: req.params.address });
+  res.status(200).json(req.params);
 });
 
 module.exports = {

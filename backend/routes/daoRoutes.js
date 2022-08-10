@@ -7,6 +7,8 @@ const {
   deleteDao,
 } = require("../controllers/daoController");
 
-router.route("/:id").get(getDao).post(setDao).put(updateDao).delete(deleteDao);
+router.route("/").post(setDao);
+
+router.route("/:address").get(getDao).put(updateDao).delete(deleteDao);
 
 module.exports = router;
