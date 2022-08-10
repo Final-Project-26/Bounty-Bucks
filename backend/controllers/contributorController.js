@@ -7,9 +7,9 @@ const Contributor = require("../models/contributorModel");
 // @access public
 
 const getContributor = asyncHandler(async (req, res) => {
-  const Contributor = await Contributor.find({ address: "address" });
+  const contributor = await Contributor.find(req.params);
 
-  res.status(200).json(Contributor);
+  res.status(200).json(contributor);
 });
 
 // @desc Set Contributor
@@ -17,12 +17,12 @@ const getContributor = asyncHandler(async (req, res) => {
 // @access public
 
 const setContributor = asyncHandler(async (req, res) => {
-  const Contributor = await Contributor.create({
+  const contributor = await Contributor.create({
     address: req.body.address,
     orgs: req.body.orgs,
     bounties: req.body.bounties,
   });
-  res.status(200).json(Contributor);
+  res.status(200).json(contributor);
 });
 
 // @desc Update Contributoracter
@@ -30,12 +30,10 @@ const setContributor = asyncHandler(async (req, res) => {
 // @access public
 
 const updateContributor = asyncHandler(async (req, res) => {
-  const Contributor = await Contributor.find({ address: "address" });
-
-  const updatedContributor = await Contributor.update(req.body, {
+  const contributor = await Contributor.findOneAndUpdate(req.params, req.body, {
     new: true,
   });
-  res.status(200).json(updatedContributor);
+  res.status(200).json(contributor);
 });
 
 // @desc Delete Contributoracter
@@ -43,11 +41,9 @@ const updateContributor = asyncHandler(async (req, res) => {
 // @access public
 
 const deleteContributor = asyncHandler(async (req, res) => {
-  const Contributor = await Contributor.find({ address: "address" });
+  const contributor = await Contributor.findOneAndRemove(req.params);
 
-  await Contributor.remove();
-
-  res.status(200).json({ address: req.params.address });
+  res.status(200).json(req.params);
 });
 
 module.exports = {
