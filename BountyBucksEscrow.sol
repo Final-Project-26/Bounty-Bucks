@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.7;
 
-import "@openzeppelin/contracts/security/Bounty_Bucks_Escrow.sol";
+import "@openzeppelin/contracts/security/BountyBucksEscrow.sol";
 
-contract Escrow is Bounty_Bucks_Escrow {
+contract Escrow is BountyBucksEscrow {
     address public escAcc;
     uint256 public escBal;
     uint256 public escAvailBal;
