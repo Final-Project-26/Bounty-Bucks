@@ -4,11 +4,16 @@ import NavBar from '../components/NavBar';
  * @returns Bounties Page
  */
 const Bounties = () => {
+    //const [nav, setNav] = useState(false);
+    //const handleClick = () => setNav(!nav);
 
     return (
-        <div className="">
+        <div class="w-full h-screen flex" className="">
+            {/** Section: NavBar */}
             <NavBar></NavBar>
-            <h1>Bounties</h1>
+            <section class="mt-40 bg-white">
+                <h1>Bounties</h1>
+            </section>
         </div>
     );
 }

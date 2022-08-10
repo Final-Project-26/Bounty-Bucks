@@ -4,6 +4,8 @@ import './index.css';
 import Home from './pages/Home'
 import Daos from './pages/Daos'
 import Bounties from './pages/Bounties'
+import ListBounty from './components/ListBounty'
+import Profile from './pages/Profile'
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter,
@@ -18,7 +20,9 @@ root.render(
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/daos" element={<Daos />}/> 
-          <Route path="/bounties" element={<Bounties />}/>        
+          <Route path="/bounties" element={<Bounties />}/>      
+          <Route path="/list-bounty" element={<ListBounty />}/>          
+          <Route path="/profile" element={<Profile />}/>          
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

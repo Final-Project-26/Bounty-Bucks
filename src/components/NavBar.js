@@ -2,119 +2,140 @@ import '../App.css';
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { getSigner } from '../utils';
-
+import { useLocation } from 'react-router';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 /**
  * @returns Top navigation bar
  */
 const NavBar = () => {
-  const [accounts, setAccounts] = useState(undefined);
-  const [address, setAddress] = useState(undefined);
+  
+const [connected, toggleConnect] = useState(false);
+const location = useLocation();
+const [currAddress, updateAddress] = useState('0x');
+
+async function getAddress() {
+  const ethers = require("ethers");
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const addr = await signer.getAddress();
+  updateAddress(addr);
+}
+
+function updateButton() {
+  const ethereumButton = document.querySelector('.enableEthereumButton');
+  ethereumButton.textContent = "Connected";
+  ethereumButton.classList.remove("hover:bg-blue-70");
+  ethereumButton.classList.remove("bg-blue-500");
+  ethereumButton.classList.add("hover:bg-green-70");
+  ethereumButton.classList.add("bg-green-500");
+}
+
+async function connectWebsite() {
+
+    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+    if(chainId !== '0x5')
+    {
+      alert('Incorrect network! Switch your metamask network to Rinkeby');
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: '0x5' }],
+     })
+    }  
+    await window.ethereum.request({ method: 'eth_requestAccounts' })
+      .then(() => {
+        updateButton();
+        console.log("here");
+        getAddress();
+        window.location.replace(location.pathname)
+      });
+}
 
   useEffect(() => {
-    const init = async () => {
-      try {
-        const provider = new ethers.providers.Web3Provider(
-          window.ethereum,
-          'any'
-        );
+    let val = window.ethereum.isConnected();
+    if(val)
+    {
+      console.log("here");
+      getAddress();
+      toggleConnect(val);
+      updateButton();
+    }
 
-        const signer = provider.getSigner();
-        setAddress(await signer.getAddress());
-      } catch (error) {
-        console.log('click the connect button');
-      }
-    };
-    init();
-  }, []);
+    window.ethereum.on('accountsChanged', function(accounts){
+      window.location.replace(location.pathname)
+    })
+  });
+
 
   return (
     <div>
-      <nav class='bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-2 border-black dark:border-gray-600'>
-        <div class='container flex flex-wrap justify-between items-center mx-auto'>
-          <a
-            href='https://github.com/Final-Project-26/Bounty-Bucks'
-            class='flex items-center'>
-            <img
-              src='/bountybuckslogo.png'
-              class='mr-1 h-8 sm:h-12'
-              alt='Bounty Bucks Logo'></img>
-            <span class='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
+      <div className="">
+        <nav className="w-screen">
+          <ul className='flex items-end justify-between py-3 bg-transparent text-white pr-5'>
+          <li className='flex items-end ml-5 pb-2'>
+            <Link to="/">
+            <img src={"./bountybuckslogo.png"} alt="" width={80} height={80} className="inline-block -mt-2"/>
+            <div className='inline-block font-bold text-black text-2xl ml-2'>
               Bounty Bucks
-            </span>
-          </a>
-          <div class='flex md:order-2'>
-            <button
-              type='button'
-              class='button-85'
-              onClick={async () => {
-                const signer = await getSigner();
-                setAccounts(signer);
-                setAddress(await signer.getAddress());
-              }}>
-              {address ? `${address.slice(0, 7)}...` : 'Connect'}
-            </button>
-            <button
-              data-collapse-toggle='navbar-sticky'
-              type='button'
-              class='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
-              aria-controls='navbar-sticky'
-              aria-expanded='false'>
-              <span class='sr-only'>Open main menu</span>
-              <svg
-                class='w-6 h-6'
-                aria-hidden='true'
-                fill='currentColor'
-                viewBox='0 0 20 20'
-                xmlns='http://www.w3.org/2000/svg'>
-                <path
-                  fill-rule='evenodd'
-                  d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z'
-                  clip-rule='evenodd'></path>
-              </svg>
-            </button>
-          </div>
-          <div
-            class='hidden justify-between items-center w-full md:flex md:w-auto md:order-1'
-            id='navbar-sticky'>
-            <ul class='flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
-              <button
-                type='button'
-                onClick={() => {
-                  return window.open(
-                    'https://bounty-bucks.vercel.app/',
-                    '_top'
-                  );
-                }}
-                class='bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-2 border-black hover:border-transparent'>
-                Home
-              </button>
-              <button
-                type='button'
-                onClick={() => {
-                  return window.open(
-                    'https://bounty-bucks.vercel.app/bounties',
-                    '_top'
-                  );
-                }}
-                class='bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-2 border-black hover:border-transparent'>
-                Bounties
-              </button>
-              <button
-                type='button'
-                onClick={() => {
-                  return window.open(
-                    'https://bounty-bucks.vercel.app/daos',
-                    '_top'
-                  );
-                }}
-                class='bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-2 border-black hover:border-transparent'>
-                DAOs
-              </button>
+            </div>
+            </Link>
+          </li>
+          <li className='w-3/6 my-7'>
+            <ul className='lg:flex justify-between font-bold mr-12 text-black text-lg'>
+              {location.pathname === "/" ? 
+              <li className='border-b-2 hover:pb-0 p-2'>
+                <Link to="/">Home</Link>
+              </li>
+              :
+              <li className='hover:border-b-2 hover:pb-0 p-2'>
+                <Link to="/">Home</Link>
+              </li>              
+              }
+              {location.pathname === "/list-bounty" ? 
+              <li className='border-b-2 hover:pb-0 p-2'>
+                <Link to="/list-bounty">List Bounty</Link>
+              </li>
+              :
+              <li className='hover:border-b-2 hover:pb-0 p-2'>
+                <Link to="/list-bounty">List Bounty</Link>
+              </li>              
+              }              
+              {location.pathname === "/bounties" ? 
+              <li className='border-b-2 hover:pb-0 p-2'>
+                <Link to="/bounties">Bounties</Link>
+              </li>
+              :
+              <li className='hover:border-b-2 hover:pb-0 p-2'>
+                <Link to="/bounties">Bounties</Link>
+              </li>              
+              }
+              {location.pathname === "/profile" ? 
+              <li className='border-b-2 hover:pb-0 p-2'>
+                <Link to="/profile">Profile</Link>
+              </li>
+              :
+              <li className='hover:border-b-2 hover:pb-0 p-2'>
+                <Link to="/profile">Profile</Link>
+              </li>              
+              }        
+              <li>
+                <button className="enableEthereumButton button-85 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={connectWebsite}>{connected? "Connected":"Connect Wallet"}</button>
+              </li>
             </ul>
-          </div>
+          </li>
+          </ul>
+        </nav>
+        <div className='text-white text-bold text-right mr-10 text-sm'>
+          {currAddress !== "0x" ? "Connected to":"Not Connected. Please login to view NFTs"} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
         </div>
-      </nav>
-    </div>
+      </div>
+      </div>
   );
 };
 
