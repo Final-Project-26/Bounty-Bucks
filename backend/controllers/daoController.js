@@ -30,12 +30,10 @@ const setDao = asyncHandler(async (req, res) => {
 // @access public
 
 const updateDao = asyncHandler(async (req, res) => {
-  const dao = await Dao.find(req.params);
-
-  const updatedDao = await dao.update(req.body, {
+  const dao = await Dao.findOneAndUpdate(req.params, req.body, {
     new: true,
   });
-  res.status(200).json(updatedDao);
+  res.status(200).json(dao);
 });
 
 // @desc Delete Daoacter
@@ -43,9 +41,7 @@ const updateDao = asyncHandler(async (req, res) => {
 // @access public
 
 const deleteDao = asyncHandler(async (req, res) => {
-  const dao = await Dao.find(req.params);
-
-  await dao.deleteOne();
+  const dao = await Dao.findOneAndRemove(req.params);
 
   res.status(200).json(req.params);
 });

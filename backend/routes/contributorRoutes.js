@@ -7,10 +7,11 @@ const {
   deleteContributor,
 } = require("../controllers/contributorController");
 
+router.route("/").post(setContributor);
+
 router
   .route("/:address")
   .get(getContributor)
-  .post(setContributor)
   .put(updateContributor)
   .delete(deleteContributor);
 
