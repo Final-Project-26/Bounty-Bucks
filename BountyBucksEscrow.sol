@@ -247,18 +247,3 @@ contract Escrow is BountyBucksEscrow {
         return true;
     }
 }
-
-
-Now, let’s demystify this smart contract function by function…
-
-
-
-Structuring the Smart Contract
-
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-
-contract Escrow is ReentrancyGuard {
-  // code goes here...
-}
