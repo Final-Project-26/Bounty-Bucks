@@ -34,5 +34,5 @@ Reimagining Payments for DAO Contributions with Activity Tracking and Automated 
        *  Goerli
        * Goerli was chosen because Rinkeby will be deprecated in Oct '22
        * ## Contract Address:
-        * ## 0xe56DEc70652cb06bDB18264D2d5DB502A512468a
+        * 0xe56DEc70652cb06bDB18264D2d5DB502A512468a
        * ## Link to Contract: https://goerli.etherscan.io/address/0xe56dec70652cb06bdb18264d2d5db502a512468a
