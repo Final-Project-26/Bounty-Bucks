@@ -5,8 +5,12 @@ import Bounties from './pages/Bounties';
 import ListBounty from './components/ListBounty'
 import Profile from './pages/Profile'
 import { useState } from 'react';
-
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import contract from './contracts/Bounty.json';
+
+const contractAddress = "0xe56DEc70652cb06bDB18264D2d5DB502A512468a";
+const abi = contract.abi;
 
 function App() {
   return (
