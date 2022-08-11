@@ -119,7 +119,7 @@ const ListBounty = () => {
                 </div>
                 <br></br>
                 <div className="text-green text-center">{message}</div>
-                <button onClick={listBounty} className="button-85 font-bold mt-10 w-full bg-black text-white rounded p-2 shadow-lg">
+                <button onClick={listBounty} className="button-85 font-bold mt-5 w-full bg-black text-white rounded p-2 shadow-lg">
                     List Your Bounty
                 </button>
             </form>
