@@ -63,9 +63,7 @@ async function connectWebsite() {
     {
       console.log("here");
       getAddress();
-      const ethereumButton = document.querySelector('.enableEthereumButton');
-      ethereumButton.textContent = "Not Connected";
-      //toggleConnect(val);
+      toggleConnect(val);
     }  else {
       updateButton();
     }
