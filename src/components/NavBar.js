@@ -78,17 +78,17 @@ async function connectWebsite() {
     <div>
       <div className="">
         <nav className="w-screen">
-          <ul className='border-black border-2 flex items-end justify-between py-3 bg-transparent text-white pr-5'>
+          <ul className='border-white border-2 flex items-end justify-between py-3 bg-black text-white pr-5'>
           <li className='flex items-end ml-5 pb-2'>
             <Link to="/">
             <img src={"./bountybuckslogo.png"} alt="" width={80} height={80} className="inline-block -mt-2"/>
-            <div className='inline-block font-bold text-black text-2xl ml-2'>
+            <div className='inline-block font-bold text-white-400 text-2xl ml-2'>
               Bounty Bucks
             </div>
             </Link>
           </li>
           <li className='w-3/6 my-7'>
-            <ul className='lg:flex justify-between font-bold mr-12 text-black text-lg'>
+            <ul className='lg:flex justify-between font-semibold mr-10 text-white text-lg'>
               {location.pathname === "/" ? 
               <li className='border-b-2 hover:pb-0 p-2'>
                 <Link to="/">Home</Link>
@@ -126,15 +126,17 @@ async function connectWebsite() {
               </li>              
               }        
               <li>
-                <button className="enableEthereumButton button-85 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={connectWebsite}>{connected? "Connected":"Connect Wallet"}</button>
+                <button className="enableEthereumButton button-85 bg-blue-500 hover:bg-blue-700 text-lime-400 font-bold py-2 px-4 rounded text-sm" onClick={connectWebsite}>{connected? "Connected":"Connect Wallet"}</button>
               </li>
             </ul>
           </li>
           </ul>
         </nav>
-        <div className='text-black text-bold text-right mr-5 mt-0 text-sm'>
+        {/**
+        <div className='text-lime-400 text-bold text-right mr-5 mt-0 text-sm'>
           {currAddress !== "0x" ? "Connected":"Not Connected. Please login to view bounties."} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
         </div>
+         */}
       </div>
       </div>
   );
