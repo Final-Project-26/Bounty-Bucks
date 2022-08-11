@@ -63,11 +63,11 @@ async function connectWebsite() {
     {
       console.log("here");
       getAddress();
-      //toggleConnect(val);
-      updateButton();
-    }  else {
       const ethereumButton = document.querySelector('.enableEthereumButton');
       ethereumButton.textContent = "Not Connected";
+      //toggleConnect(val);
+    }  else {
+      updateButton();
     }
 
     window.ethereum.on('accountsChanged', function(accounts){
