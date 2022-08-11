@@ -99,7 +99,7 @@ const ListBounty = () => {
 
             {/** Section: Form */}
             <div className="bg-black flex flex-col place-items-center mb-100" id="bountyForm">
-            <form className="mt-20 bg-white border-red-400 border-4 shadow-md rounded px-8 pt-4 pb-8 mb-4">
+            <form className="mt-20 bg-white border-red-400 border-4 shadow-md rounded px-8 pt-4 pb-8 mb-100">
                 <h3 className="text-center text-2xl font-bold text-black mb-8">List Your Bounty</h3>
                 <div className="mb-4">
                     <label className="block text-black-500 text-sm font-bold mb-2" htmlFor="name">Enter Bounty Name:</label>
