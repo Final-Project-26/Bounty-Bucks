@@ -50,7 +50,7 @@ async function connectWebsite() {
     }  
     await window.ethereum.request({ method: 'eth_requestAccounts' })
       .then(() => {
-        // updateButton();
+        updateButton();
         console.log("here");
         getAddress();
         window.location.replace(location.pathname)
@@ -66,8 +66,7 @@ async function connectWebsite() {
       toggleConnect(val);
       updateButton();
     }  else {
-      const ethereumButton = document.querySelector('.enableEthereumButton');
-      ethereumButton.textContent = "Disconnected";
+      toggleConnect(val);
     }
 
     window.ethereum.on('accountsChanged', function(accounts){
@@ -135,7 +134,7 @@ async function connectWebsite() {
           </ul>
         </nav>
         <div className='text-black text-bold text-right mr-5 mt-0 text-sm'>
-          {currAddress !== "0x" ? "Connected to":"Not Connected. Please login to view bounties."} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
+          {currAddress !== "0x" ? "Connected":"Not Connected. Please login to view bounties."} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
         </div>
       </div>
       </div>
