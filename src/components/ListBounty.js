@@ -4,6 +4,7 @@ import { uploadFileToIPFS, uploadJSONToIPFS } from "../pinata";
 import Bounty from '../Bounty.json';
 import { useLocation } from "react-router";
 import { hexStripZeros } from 'ethers/lib/utils';
+import contract from '../Bounty.json';
 
 /**
  * @returns List Bounty Page
@@ -61,20 +62,23 @@ const ListBounty = () => {
             const metadataURL = await uploadMetadataToIPFS();
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
-            const addr = await signer.getAddress();
             updateMessage("Please wait.. uploading (upto 5 mins)")
 
-            let contract = new ethers.Contract(Bounty.address, Bounty.abi, signer);
+            const contractAddress = "0xe56DEc70652cb06bDB18264D2d5DB502A512468a";
+            const abi = contract.result;
+            let bountyContract = new ethers.Contract(contractAddress, abi, signer);
 
-            //const price = ethers.utils.parseUnits(formParams.price, 'ether');
-            let depositPrice = await contract.getBalance();
+            const price = ethers.utils.parseUnits(formParams.price, 'ether');
+            let depositPrice = await bountyContract.getBalance();
             depositPrice = depositPrice.toString();
+            console.log("deposit price", price);
             alert("PRICE CALL PASSED: " , depositPrice);
 
             // my wallet address: 
-            let transaction = await contract.fund(signer, { value: depositPrice });
+            let transaction = await bountyContract.fund(signer, { value: price });
             await transaction.wait()
 
+            console.log("transaction: ", transaction.toString());
             alert("TRANSACTION CALL PASSED: " , transaction.toString());
 
             alert("Successfully listed your Bounty!");
@@ -89,10 +93,10 @@ const ListBounty = () => {
 
     console.log("Working", process.env);
     return (
-        <div class="w-full h-screen flex" className="listBounty">
+        <div className="w-full h-screen flex" class="listBounty">
             {/** Section: NavBar */}
             <NavBar></NavBar>
-            <section class="bg-white">
+            <section className="bg-white" class="">
                 <div className="flex flex-col place-items-center mt-10" id="bountyForm">
                 <form className="bg-white border-black border-2 shadow-md rounded px-8 pt-4 pb-8 mb-4">
                     <h3 className="text-center text-2xl font-bold text-black mb-8">List Your Bounty</h3>

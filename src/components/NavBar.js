@@ -50,7 +50,7 @@ async function connectWebsite() {
     }  
     await window.ethereum.request({ method: 'eth_requestAccounts' })
       .then(() => {
-        updateButton();
+        // updateButton();
         console.log("here");
         getAddress();
         window.location.replace(location.pathname)
@@ -59,12 +59,15 @@ async function connectWebsite() {
 
   useEffect(() => {
     let val = window.ethereum.isConnected();
-    if(val)
+    if(val === true)
     {
       console.log("here");
       getAddress();
       toggleConnect(val);
       updateButton();
+    }  else {
+      const ethereumButton = document.querySelector('.enableEthereumButton');
+      ethereumButton.textContent = "Disconnected";
     }
 
     window.ethereum.on('accountsChanged', function(accounts){
@@ -77,7 +80,7 @@ async function connectWebsite() {
     <div>
       <div className="">
         <nav className="w-screen">
-          <ul className='flex items-end justify-between py-3 bg-transparent text-white pr-5'>
+          <ul className='border-black border-2 flex items-end justify-between py-3 bg-transparent text-white pr-5'>
           <li className='flex items-end ml-5 pb-2'>
             <Link to="/">
             <img src={"./bountybuckslogo.png"} alt="" width={80} height={80} className="inline-block -mt-2"/>
@@ -125,14 +128,14 @@ async function connectWebsite() {
               </li>              
               }        
               <li>
-                <button className="enableEthereumButton button-85 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={connectWebsite}>{connected? "Connected":"Connect Wallet"}</button>
+                <button className="enableEthereumButton button-85 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={connectWebsite}>{connected? "Connected ONCLICK":"Connect Wallet ONCLICK"}</button>
               </li>
             </ul>
           </li>
           </ul>
         </nav>
-        <div className='text-white text-bold text-right mr-10 text-sm'>
-          {currAddress !== "0x" ? "Connected to":"Not Connected. Please login to view NFTs"} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
+        <div className='text-black text-bold text-right mr-5 mt-0 text-sm'>
+          {currAddress !== "0x" ? "Connected to":"Not Connected. Please login to view bounties."} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
         </div>
       </div>
       </div>
