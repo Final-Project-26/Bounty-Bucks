@@ -1,7 +1,7 @@
 ## Bounty Bucks
 
 
-![Bounty_Bucks_Logo (1)](https://user-images.githubusercontent.com/100870737/182691725-9180e136-4956-456f-8738-9890e6bd2388.jpg)
+![Bounty Bucks Logo](https://user-images.githubusercontent.com/100870737/184523251-3a6061f3-2330-4b82-ace2-98f69ea894b0.png)
 
 
 
